@@ -24,4 +24,4 @@ sinatra-course-20130329＠NISRA
 *  在issues中提出New issue
 
 講義：
-在repo內, [Notes.pdf](/blob/master/Notes.pdf)
+在repo內, [Notes.pdf](/Notes.pdf)
