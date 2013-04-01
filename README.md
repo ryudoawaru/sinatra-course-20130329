@@ -22,3 +22,6 @@ sinatra-course-20130329＠NISRA
 
 *  關注(Watch)
 *  在issues中提出New issue
+
+講義：
+在repo內, [Notes.pdf](/blob/master/Notes.pdf)
