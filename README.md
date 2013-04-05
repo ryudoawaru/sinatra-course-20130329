@@ -24,4 +24,4 @@ sinatra-course-20130329＠NISRA
 *  在issues中提出New issue
 
 講義：
-在repo內, [Notes.pdf](/Notes.pdf)
+[SpeakerDeck](https://speakerdeck.com/ryudoawaru/sinatra-and-rack-tutorial-at-nisra)
