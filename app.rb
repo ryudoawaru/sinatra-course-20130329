@@ -43,14 +43,24 @@ get '/contacts' do
   erb :index
 end
 
-#post '/contacts' do
-#
-#end
-#
-#get '/contacts/new' do
-#  erb :form
-#end
-#
+post '/contacts' do
+  params[:contact]["created_on"] = Time.now.strftime('%Y/%m/%d')
+  @new_contact = {}
+  @contacts.first.keys.each do |k|
+    @new_contact[k] = params[:contact][k]
+  end
+  @new_contact["id"] = @contacts.max{|a,b| a["id"].to_i <=> b["id"].to_i  }["id"].to_i + 1
+  @contacts << @new_contact
+  save_csv @contacts
+  redirect '/contacts'
+end
+
+get '/contacts/new' do
+  @contact = {}
+  @action = '/contacts'
+  erb :form
+end
+
 
 before %r{\/contacts\/(\d+).*} do
   @contact = @contacts.select{|contact| contact["id"] == params[:captures].first}
@@ -74,4 +84,8 @@ get '/contacts/:id' do
   erb :show
 end
 
-
+delete '/contacts/:id' do
+  @contacts.delete_if{|c| c["id"] == params[:id] }
+  save_csv @contacts
+  redirect '/contacts'
+end
